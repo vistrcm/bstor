@@ -5,7 +5,7 @@ sanity: fmt test lint-all
 
 .PHONY: fmt
 fmt:
-	go fmt ./... && goimports -w .
+	go fmt ./...
 
 .PHONY: test
 test:
