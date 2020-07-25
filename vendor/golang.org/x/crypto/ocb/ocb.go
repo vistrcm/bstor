@@ -18,8 +18,9 @@ import (
 	"crypto/cipher"
 	"crypto/subtle"
 	"errors"
-	"golang.org/x/crypto/internal/byteutil"
 	"math/bits"
+
+	"golang.org/x/crypto/internal/byteutil"
 )
 
 type ocb struct {
@@ -93,13 +94,13 @@ func NewOCBWithNonceAndTagSize(
 		return nil, ocbError("Custom tag length exceeds blocksize")
 	}
 	return &ocb{
-		block:        block,
-		tagSize:      tagSize,
-		nonceSize:    nonceSize,
-		mask:         initializeMaskTable(block),
+		block:     block,
+		tagSize:   tagSize,
+		nonceSize: nonceSize,
+		mask:      initializeMaskTable(block),
 		reusableKtop: reusableKtop{
 			noncePrefix: nil,
-			Ktop: nil,
+			Ktop:        nil,
 		},
 	}, nil
 }

@@ -124,9 +124,9 @@ func NewEntity(name, comment, email string, config *packet.Config) (*Entity, err
 			FlagSign:     true,
 			FlagCertify:  true,
 			// Set MDC true by default, see 5.8 vs. 5.14
-			MDC:          true,
-			AEAD:         config.AEAD() != nil,
-			IssuerKeyId:  &e.PrimaryKey.KeyId,
+			MDC:         true,
+			AEAD:        config.AEAD() != nil,
+			IssuerKeyId: &e.PrimaryKey.KeyId,
 		},
 	}
 	e.Identities[uid.Id].Signatures = append(e.Identities[uid.Id].Signatures, e.Identities[uid.Id].SelfSignature)

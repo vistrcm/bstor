@@ -4,6 +4,7 @@ package algorithm
 
 import (
 	"crypto/cipher"
+
 	"golang.org/x/crypto/eax"
 	"golang.org/x/crypto/ocb"
 )

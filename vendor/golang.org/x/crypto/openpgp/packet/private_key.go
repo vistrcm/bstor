@@ -222,7 +222,7 @@ func (pk *PrivateKey) Serialize(w io.Writer) (err error) {
 	} else {
 		err = pk.serializeUnencrypted(privateKeyBuf)
 	}
-	
+
 	if err != nil {
 		return
 	}

@@ -5,36 +5,21 @@ github.com/ProtonMail/go-mime
 github.com/ProtonMail/gopenpgp/v2/armor
 github.com/ProtonMail/gopenpgp/v2/constants
 github.com/ProtonMail/gopenpgp/v2/crypto
-github.com/ProtonMail/gopenpgp/v2/helper
 github.com/ProtonMail/gopenpgp/v2/internal
-# github.com/fsnotify/fsnotify v1.4.9
-## explicit
 # github.com/inconshreveable/mousetrap v1.0.0
 github.com/inconshreveable/mousetrap
 # github.com/konsorten/go-windows-terminal-sequences v1.0.1
 github.com/konsorten/go-windows-terminal-sequences
-# github.com/mitchellh/mapstructure v1.3.2
-## explicit
-# github.com/pelletier/go-toml v1.8.0
-## explicit
 # github.com/pkg/errors v0.8.1
 github.com/pkg/errors
 # github.com/sirupsen/logrus v1.4.2
 github.com/sirupsen/logrus
-# github.com/spf13/afero v1.3.1
-## explicit
-# github.com/spf13/cast v1.3.1
-## explicit
 # github.com/spf13/cobra v1.0.0
 ## explicit
 github.com/spf13/cobra
-# github.com/spf13/jwalterweatherman v1.1.0
-## explicit
 # github.com/spf13/pflag v1.0.5
 ## explicit
 github.com/spf13/pflag
-# github.com/spf13/viper v1.7.0
-## explicit
 # golang.org/x/crypto v0.0.0-20190923035154-9ee001bba392 => github.com/ProtonMail/crypto v0.0.0-20200416114516-1fa7f403fb9c
 golang.org/x/crypto/bitcurves
 golang.org/x/crypto/brainpool
@@ -84,6 +69,6 @@ golang.org/x/text/internal/utf8internal
 golang.org/x/text/language
 golang.org/x/text/runes
 golang.org/x/text/transform
-# gopkg.in/ini.v1 v1.57.0
+# gopkg.in/yaml.v2 v2.3.0
 ## explicit
 # golang.org/x/crypto => github.com/ProtonMail/crypto v0.0.0-20200416114516-1fa7f403fb9c
