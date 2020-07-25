@@ -17,9 +17,16 @@ var rootCmd = &cobra.Command{
 }
 
 func Execute() {
+	addCommands()
 	if err := rootCmd.Execute(); err != nil {
 		er(err)
 	}
+}
+
+func addCommands() {
+	rootCmd.AddCommand(versionCmd())
+	rootCmd.AddCommand(encryptCmd())
+	rootCmd.AddCommand(playCmd())
 }
 
 func er(msg interface{}) {

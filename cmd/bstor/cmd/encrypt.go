@@ -3,27 +3,25 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/vistrcm/bstor/pgp"
-
 	"github.com/spf13/cobra"
+
+	"github.com/vistrcm/bstor/pgp"
 )
 
-func init() {
-	rootCmd.AddCommand(encryptCmd)
-}
+func encryptCmd() *cobra.Command {
+	return &cobra.Command{
+		Use:   "encrypt source ... target",
+		Short: "encrypt files",
+		Long:  `encrypt source to the target`,
+		Args:  cobra.ExactArgs(2), //nolint: gomnd
+		Run: func(cmd *cobra.Command, args []string) {
+			s := args[0]
+			t := args[1]
 
-var encryptCmd = &cobra.Command{
-	Use:   "encrypt source ... target",
-	Short: "encrypt files",
-	Long:  `encrypt source to the target`,
-	Args:  cobra.ExactArgs(2), //nolint: gomnd
-	Run: func(cmd *cobra.Command, args []string) {
-		s := args[0]
-		t := args[1]
+			encCopy(s, t)
 
-		encCopy(s, t)
-
-	},
+		},
+	}
 }
 
 //encCopy encrypt files and copy.

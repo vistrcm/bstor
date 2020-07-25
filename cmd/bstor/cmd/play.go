@@ -3,23 +3,21 @@ package cmd
 import (
 	"fmt"
 
+	"github.com/spf13/cobra"
+
 	"github.com/ProtonMail/gopenpgp/v2/crypto"
 	"github.com/vistrcm/bstor/pgp"
-
-	"github.com/spf13/cobra"
 )
 
-func init() {
-	rootCmd.AddCommand(playCmd)
-}
-
-var playCmd = &cobra.Command{
-	Use:   "play",
-	Short: "play with bstor",
-	Long:  `dev only. Play with commandsm`,
-	Run: func(cmd *cobra.Command, args []string) {
-		play()
-	},
+func playCmd() *cobra.Command {
+	return &cobra.Command{
+		Use:   "play",
+		Short: "play with bstor",
+		Long:  `dev only. Play with commandsm`,
+		Run: func(cmd *cobra.Command, args []string) {
+			play()
+		},
+	}
 }
 
 func play() {
