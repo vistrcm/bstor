@@ -16,7 +16,7 @@ var encryptCmd = &cobra.Command{
 	Use:   "encrypt source ... target",
 	Short: "encrypt files",
 	Long:  `encrypt source to the target`,
-	Args:  cobra.ExactArgs(2),
+	Args:  cobra.ExactArgs(2), //nolint: gomnd
 	Run: func(cmd *cobra.Command, args []string) {
 		s := args[0]
 		t := args[1]
