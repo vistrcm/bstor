@@ -69,7 +69,10 @@ func (g GpgCLI) run(args ...string) (res RunGpg2Res) {
 	// details: https://github.com/keybase/client/blob/master/go/libkb/gpg_cli.go#L396
 	args = append([]string{"--no-auto-check-trustdb"}, args...)
 
-	cmd := exec.CommandContext(ctx, g.path, args...)
+	// run gpg command
+	// nosec G204 suppression because `g.path` is set by looking path for `gpg2` or `gpg` binary
+	// in the findGpgPath()
+	cmd := exec.CommandContext(ctx, g.path, args...) // #nosec G204
 
 	var stdout, stderr io.ReadCloser
 
