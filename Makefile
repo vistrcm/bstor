@@ -21,3 +21,6 @@ lint-all:
 
 .PHONY: pre-commit
 pre-commit: test lint
+
+.PHONY: pre-push
+pre-push: sanity
