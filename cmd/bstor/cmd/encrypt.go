@@ -19,7 +19,6 @@ func encryptCmd() *cobra.Command {
 			t := args[1]
 
 			encCopy(s, t)
-
 		},
 	}
 }

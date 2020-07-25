@@ -18,6 +18,7 @@ var rootCmd = &cobra.Command{
 
 func Execute() {
 	addCommands()
+
 	if err := rootCmd.Execute(); err != nil {
 		er(err)
 	}
