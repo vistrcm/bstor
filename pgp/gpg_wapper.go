@@ -60,7 +60,9 @@ func (rc readChanRes) result() ([]byte, error) {
 
 //run command
 func (g GpgCLI) run(args ...string) (res RunGpg2Res) {
-	ctx, cancel := context.WithTimeout(context.Background(), 100*time.Millisecond)
+	const cmdTimeout = 100 * time.Millisecond
+
+	ctx, cancel := context.WithTimeout(context.Background(), cmdTimeout)
 	defer cancel()
 
 	// Always use --no-auto-check-trustdb to prevent gpg from refreshing trustdb.
