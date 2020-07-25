@@ -2,6 +2,8 @@ package cmd
 
 import (
 	"fmt"
+	"os"
+	"path"
 
 	"github.com/spf13/cobra"
 
@@ -25,8 +27,14 @@ func encryptCmd() *cobra.Command {
 
 //encCopy encrypt files and copy.
 func encCopy(s string, t string) {
-	// TODO: check src existence
-	// TODO: check that target is ok
+	if err := checkSrc(s); err != nil {
+		panic(err)
+	}
+
+	if err := checkDst(t); err != nil {
+		panic(err)
+	}
+
 	fmt.Printf("Encrypt!: %+v -> %+v\n", s, t)
 
 	g, err := pgp.New()
@@ -42,4 +50,17 @@ func encCopy(s string, t string) {
 	if err := pgp.EncryptFile(s, t, publicKeyRing); err != nil {
 		panic(err)
 	}
+}
+
+func checkDst(t string) error {
+	//check if path exist
+	_, err := os.Stat(path.Dir(t))
+	return err
+}
+
+func checkSrc(s string) error {
+	// check if file exist
+	_, err := os.Stat(s)
+	// error accessing file. One of the possibilities: os.ErrNotExist
+	return err
 }
