@@ -14,3 +14,6 @@ test:
 .PHONY: lint
 lint:
 	golangci-lint run --enable-all
+
+.PHONY: pre-commit
+pre-commit: test lint
