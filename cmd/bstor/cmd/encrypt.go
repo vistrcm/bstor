@@ -38,6 +38,9 @@ func encCopy(s string, t string) {
 	}
 
 	publicKeyRing, err := g.GetKeyring("2496B1F0F2FD90F50FF574D548F22A464791F054")
+	if err != nil {
+		panic(err)
+	}
 
 	if err := pgp.EncryptFile(s, t, publicKeyRing); err != nil {
 		panic(err)
