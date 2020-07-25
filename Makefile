@@ -24,3 +24,7 @@ pre-commit: test lint
 
 .PHONY: pre-push
 pre-push: sanity
+
+.PHONY: goimports
+goimports:
+	goimports -w cmd/ pgp
