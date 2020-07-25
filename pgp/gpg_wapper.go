@@ -58,7 +58,7 @@ func (rc readChanRes) result() ([]byte, error) {
 	return rc.data, rc.err
 }
 
-//run command
+//run command.
 func (g GpgCLI) run(args ...string) (res RunGpg2Res) {
 	const cmdTimeout = 100 * time.Millisecond
 
@@ -133,7 +133,7 @@ func (g GpgCLI) GetKey(id string) ([]byte, error) {
 	return res.Stdout, nil
 }
 
-//GetKeyring returns `crypto.KeyRing` of a specific key `id`
+//GetKeyring returns `crypto.KeyRing` of a specific key `id`.
 func (g GpgCLI) GetKeyring(id string) (*crypto.KeyRing, error) {
 	pubkey, err := g.GetKey(id)
 	if err != nil {
