@@ -4,20 +4,21 @@ package pgp
 import (
 	"context"
 	"fmt"
-	"github.com/ProtonMail/gopenpgp/v2/crypto"
 	"io"
 	"io/ioutil"
 	"os/exec"
 	"time"
+
+	"github.com/ProtonMail/gopenpgp/v2/crypto"
 )
 
-//GpgCLI representation of GpgCLI
+//GpgCLI representation of GpgCLI.
 // inspired by https://github.com/keybase/client/blob/master/go/libkb/gpg_cli.go
 type GpgCLI struct {
 	path string
 }
 
-//New() construct and return new GpgCLI
+//New() construct and return new GpgCLI.
 func New() (GpgCLI, error) {
 	path, err := findGpgPath()
 	if err != nil {
@@ -27,7 +28,7 @@ func New() (GpgCLI, error) {
 	return GpgCLI{path: path}, nil
 }
 
-//findGpgPath looks for gpg2, if not found for gpg and return an path for this executable
+//findGpgPath looks for gpg2, if not found for gpg and return an path for this executable.
 func findGpgPath() (string, error) {
 	prog, err := exec.LookPath("gpg2")
 
@@ -73,6 +74,7 @@ func (g GpgCLI) run(args ...string) (res RunGpg2Res) {
 	if stdout, res.Err = cmd.StdoutPipe(); res.Err != nil {
 		return
 	}
+
 	if stderr, res.Err = cmd.StderrPipe(); res.Err != nil {
 		return
 	}
@@ -112,7 +114,7 @@ func (g GpgCLI) run(args ...string) (res RunGpg2Res) {
 		return
 	}
 
-	return
+	return res
 }
 
 //GetKey return pgp key for the `id`.
@@ -122,6 +124,7 @@ func (g GpgCLI) GetKey(id string) ([]byte, error) {
 	if res.Err != nil {
 		return nil, fmt.Errorf("error getting key: %w", res.Err)
 	}
+
 	return res.Stdout, nil
 }
 

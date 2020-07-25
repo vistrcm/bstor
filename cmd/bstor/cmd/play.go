@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+
 	"github.com/ProtonMail/gopenpgp/v2/crypto"
 	"github.com/vistrcm/bstor/pgp"
 
@@ -22,7 +23,6 @@ var playCmd = &cobra.Command{
 }
 
 func play() {
-
 	g, err := pgp.New()
 	if err != nil {
 		panic(err)
@@ -45,8 +45,5 @@ func play() {
 		panic(err)
 	}
 
-
 	fmt.Println(armored)
-
-
 }

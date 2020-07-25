@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+
 	"github.com/vistrcm/bstor/pgp"
 
 	"github.com/spf13/cobra"
@@ -25,7 +26,7 @@ var encryptCmd = &cobra.Command{
 	},
 }
 
-//encCopy encrypt files and copy
+//encCopy encrypt files and copy.
 func encCopy(s string, t string) {
 	// TODO: check src existence
 	// TODO: check that target is ok
@@ -38,7 +39,7 @@ func encCopy(s string, t string) {
 
 	publicKeyRing, err := g.GetKeyring("2496B1F0F2FD90F50FF574D548F22A464791F054")
 
-	if err := pgp.EncryptFile(s, t, publicKeyRing); err != nil{
+	if err := pgp.EncryptFile(s, t, publicKeyRing); err != nil {
 		panic(err)
 	}
 }
