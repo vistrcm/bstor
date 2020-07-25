@@ -7,9 +7,10 @@ package packet
 import (
 	"crypto"
 	"crypto/rand"
-	"io"
 	"math/big"
+	"io"
 	"time"
+
 )
 
 // Config collects a number of parameters along with sensible defaults.

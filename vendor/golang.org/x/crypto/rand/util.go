@@ -128,7 +128,7 @@ func Prime(rand io.Reader, bits int) (p *big.Int, err error) {
 	bigMod := new(big.Int)
 
 	for {
-		if p.BitLen() > bits {
+		if (p.BitLen() > bits) {
 			p, err = initializeRandom(rand, bits)
 			if err != nil {
 				return
@@ -221,7 +221,7 @@ func Int(rand io.Reader, max *big.Int) (n *big.Int, err error) {
 	}
 }
 
-func initializeRandom(rand io.Reader, bits int) (p *big.Int, err error) {
+func initializeRandom(rand io.Reader, bits int) (p *big.Int, err error){
 	p = new(big.Int)
 
 	b := uint(bits % 8)

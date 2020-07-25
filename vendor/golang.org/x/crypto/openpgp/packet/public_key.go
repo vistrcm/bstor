@@ -127,14 +127,14 @@ func NewECDSAPublicKey(creationTime time.Time, pub *ecdsa.PublicKey) *PublicKey 
 func NewECDHPublicKey(creationTime time.Time, pub *ecdh.PublicKey) *PublicKey {
 	var pk *PublicKey
 	var curveInfo *ecc.CurveInfo
-	var kdf = encoding.NewOID([]byte{0x1, pub.Hash.Id(), pub.Cipher.Id()})
+	var kdf = encoding.NewOID([]byte{ 0x1, pub.Hash.Id(), pub.Cipher.Id() })
 	if pub.CurveType == ecc.Curve25519 {
 		pk = &PublicKey{
 			CreationTime: creationTime,
 			PubKeyAlgo:   PubKeyAlgoECDH,
 			PublicKey:    pub,
 			p:            encoding.NewMPI(pub.X.Bytes()),
-			kdf:          kdf,
+			kdf: kdf,
 		}
 		curveInfo = ecc.FindByName("Curve25519")
 	} else {
@@ -143,7 +143,7 @@ func NewECDHPublicKey(creationTime time.Time, pub *ecdh.PublicKey) *PublicKey {
 			PubKeyAlgo:   PubKeyAlgoECDH,
 			PublicKey:    pub,
 			p:            encoding.NewMPI(elliptic.Marshal(pub.Curve, pub.X, pub.Y)),
-			kdf:          kdf,
+			kdf: kdf,
 		}
 		curveInfo = ecc.FindByCurve(pub.Curve)
 	}
@@ -345,7 +345,7 @@ func (pk *PublicKey) parseECDH(r io.Reader) (err error) {
 	c := curveInfo.Curve
 	cType := curveInfo.CurveType
 
-	var x, y *big.Int
+	var x, y *big.Int;
 	if cType == ecc.Curve25519 {
 		x = new(big.Int)
 		x.SetBytes(pk.p.Bytes())
@@ -373,9 +373,9 @@ func (pk *PublicKey) parseECDH(r io.Reader) (err error) {
 
 	pk.PublicKey = &ecdh.PublicKey{
 		CurveType: cType,
-		Curve:     c,
-		X:         x,
-		Y:         y,
+		Curve: c,
+		X:     x,
+		Y:     y,
 		KDF: ecdh.KDF{
 			Hash:   kdfHash,
 			Cipher: kdfCipher,
