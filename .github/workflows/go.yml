@@ -22,7 +22,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Build
-      run: go build -v .
+      run: go build -v cmd/bstor/bstor.go
 
     - name: Test
-      run: go test -v .
+      run: go test -v ./...
