@@ -46,9 +46,8 @@ golang.org/x/crypto/openpgp/packet
 golang.org/x/crypto/openpgp/s2k
 golang.org/x/crypto/rand
 golang.org/x/crypto/rsa
-# golang.org/x/sys v0.0.0-20200625212154-ddb9806d33ae
+# golang.org/x/sys v0.1.0
 ## explicit
-golang.org/x/sys/internal/unsafeheader
 golang.org/x/sys/unix
 # golang.org/x/text v0.3.3
 ## explicit
